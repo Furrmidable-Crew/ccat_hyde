@@ -1,26 +1,19 @@
-# My plugin
+# Ccat Hyde
 
-[![awesome plugin](https://custom-icon-badges.demolab.com/static/v1?label=&message=awesome+plugin&color=383938&style=for-the-badge&logo=cheshire_cat_ai)](https://)  
 [![Awesome plugin](https://custom-icon-badges.demolab.com/static/v1?label=&message=Awesome+plugin&color=000000&style=for-the-badge&logo=cheshire_cat_ai)](https://)  
-[![awesome plugin](https://custom-icon-badges.demolab.com/static/v1?label=&message=awesome+plugin&color=F4F4F5&style=for-the-badge&logo=cheshire_cat_black)](https://)
 
-Write here all the useful information about your plugin.
+# Hypothetical Document Embedding Plugin
 
-This repository is the template to automate the release of official Cheshire Cat AI plugins. 
+This plugin enables the [Hypothetical Document Embedding](https://cheshire-cat-ai.github.io/docs/conceptual/prompts/hyde/) (HyDE) technique.
 
-## Usage
+HyDE consists in asking the Language Model to simulate an answer (*hypothetical* answer) to a question.
+Such answer is [embedded](https://cheshire-cat-ai.github.io/docs/conceptual/llm/#embedding-model)
+and used
+to recall relevant context from the [vector memories](https://cheshire-cat-ai.github.io/docs/conceptual/memory/vector_memory/).
 
-1. Create a new repository clicking on the `Use this template` button.
-2. Clone your new repo directly in the Cat's `plugins` folder.
-3. Run the `setup.py` script:
-```bash
-python setup.py
-```
-The script will prompt you to write the name of your plugin and make an initial setup setting the name in the files.
+HyDE is beneficial in Question-Answering tasks.
+The underlying idea is that using the embedded *hypothetical* answer in a vector similarity search would lead to better results
+rather than using the embedded question itself.
 
-4. Start developing!
-
-> **Important**
-> A new release of your plugin is triggered every time you set a new `version` in the `plugin.json` file.
-> Please, remember to set it correctly every time to want to release an update.
-
+> **Warning**
+> When this plugin is enabled, the Cat makes and additional call to the language model API.

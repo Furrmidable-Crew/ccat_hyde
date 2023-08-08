@@ -40,7 +40,7 @@ jobs:
         uses: TheDoctor0/zip-release@0.7.1
         with:
           type: 'zip'
-          filename: 'my_plugin.zip'
+          filename: 'ccat_hyde.zip'
           exclusions: '*.git* setup.py'
           directory: '.'
           path: '.'
@@ -48,7 +48,7 @@ jobs:
         uses: ncipollo/release-action@v1.12.0
         with:
           tag: "${{fromJson(env.PLUGIN_JSON).version}}"
-          artifacts: 'my_plugin.zip'
+          artifacts: 'ccat_hyde.zip'
           allowUpdates: true
           replacesArtifacts: true
           body: |
