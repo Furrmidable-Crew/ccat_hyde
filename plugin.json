@@ -2,9 +2,9 @@
     "name": "Hypothetical Document Embedding",
     "version": "0.0.4",
     "description": "Official plugin of the Cheshire Cat to add the Hypothetical Document Embedding (HyDE) technique",
-    "author_name": "FritzTheCat",
+    "author_name": "Nicola Corbellini",
     "author_url": "",
     "plugin_url": "https://github.com/Furrmidable-Crew/ccat_hyde",
     "tags": "hyde, llm, cheshire-cat, embedding",
-    "thumb": ""
+    "thumb": "https://raw.githubusercontent.com/Furrmidable-Crew/ccat_hyde/main/logo.png"
 }
