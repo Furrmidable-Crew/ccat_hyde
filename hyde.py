@@ -27,15 +27,13 @@ def cat_recall_query(user_message, cat):
     cat.working_memory["hyde_embedding"] = cat.embedder(answer["text"])
     return user_message
 
-#@hook(priority=0)
-#def before_cat_recalls_memories(cat):
-#    cat.working_memory["memory_query"] = (cat.working_memory["memory_query"] + cat.working_memory["hyde_query"])/2
 
 # Calculates the average between the user's message embedding and the Hyde response embedding
 def _calculate_vector_average(config, cat):
     user_embedding = config.embedding
     hyde_embedding = cat.working_memory["hyde_embedding"]
     config.embedding = (user_embedding + hyde_embedding) / 2
+
 
 @hook(priority=0)
 def before_cat_recalls_episodic_memories(config, cat):
