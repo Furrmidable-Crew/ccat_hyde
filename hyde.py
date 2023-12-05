@@ -35,14 +35,14 @@ def _calculate_vector_average(config, cat):
     config.embedding = (user_embedding + hyde_embedding) / 2
 
 
-@hook(priority=0)
+@hook(priority=1)
 def before_cat_recalls_episodic_memories(config, cat):
     _calculate_vector_average(config, cat)
 
-@hook(priority=0)
+@hook(priority=1)
 def before_cat_recalls_declarative_memories(config, cat):
     _calculate_vector_average(config, cat)
 
-@hook(priority=0)
+@hook(priority=1)
 def before_cat_recalls_procedural_memories(config, cat):
     _calculate_vector_average(config, cat)
