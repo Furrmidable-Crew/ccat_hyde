@@ -37,9 +37,8 @@ AVERAGE_EMBEDDING = "average_embedding"
 @hook(priority=1)
 def cat_recall_query(user_message, cat):
 
-    #This method not work yet, but in the future I hope it will work
+    # Acquire settings
     settings = cat.mad_hatter.get_plugin().load_settings() 
-    
     log.debug(f" --------- ACQUIRE SETTINGS ---------")
     log.debug(f"settings: {settings}")
 
