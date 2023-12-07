@@ -1,5 +1,5 @@
-from cat.mad_hatter.decorators import plugin
 from pydantic import BaseModel, Field
+from cat.mad_hatter.decorators import plugin
 
 
 class MySettings(BaseModel):
@@ -19,7 +19,6 @@ class MySettings(BaseModel):
     - {input} -->""",
                 extra={"type": "TextArea"}
         )
-
 
 @plugin
 def settings_schema():
