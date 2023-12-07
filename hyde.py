@@ -1,32 +1,8 @@
-from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from cat.mad_hatter.decorators import plugin
-from pydantic import BaseModel, Field
+from langchain.prompts import PromptTemplate
+
 from cat.log import log
 from cat.mad_hatter.decorators import hook
-
-
-class MySettings(BaseModel):
-    hyde_prompt: str = Field(
-                title="HyDe prompt",
-                default="""You will be given a sentence.
-    If the sentence is a question, convert it to a plausible answer. If the sentence does not contain a question, 
-    just repeat the sentence as is without adding anything to it.
-
-    Examples:
-    - what furniture there is in my room? --> In my room there is a bed, a wardrobe and a desk with my computer
-    - where did you go today --> today I was at school
-    - I like ice cream --> I like ice cream
-    - how old is Jack --> Jack is 20 years old
-
-    Sentence:
-    - {input} -->""",
-                extra={"type": "TextArea"}
-        )
-
-@plugin
-def settings_schema():
-    return MySettings.schema()
 
 
 # Keys
@@ -38,7 +14,7 @@ AVERAGE_EMBEDDING = "average_embedding"
 def cat_recall_query(user_message, cat):
 
     # Acquire settings
-    settings = cat.mad_hatter.get_plugin().load_settings() 
+    settings = cat.mad_hatter.get_plugin().load_settings()
     log.debug(f" --------- ACQUIRE SETTINGS ---------")
     log.debug(f"settings: {settings}")
 
@@ -55,9 +31,9 @@ def cat_recall_query(user_message, cat):
     # Save HyDE answer in working memory
     cat.working_memory[HYDE_ANSWER] = answer["text"]
     
-    log.warning("------------- HYDE -------------")
-    log.warning(f"user message: {user_message}")
-    log.warning(f"hyde answer: {answer['text']}")
+    log.debug("------------- HYDE -------------")
+    log.debug(f"user message: {user_message}")
+    log.debug(f"hyde answer: {answer['text']}")
     
     return user_message
 
